@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwriting Generator</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&family=Indie+Flower&family=Satisfy&family=Tangerine&display=swap" rel="stylesheet">
+    
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light bg-[var(--bg)] text-[var(--text)]">
+    <div class="min-h-screen flex flex-col">
+        <nav class="w-full p-4 flex justify-end bg-[var(--bg)] text-[var(--text)] border-b border-[var(--secondary)]">
+            <div class="flex items-center space-x-3">
+                <span class="text-sm">Light</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="text-sm">Dark</span>
+            </div>
+        </nav>
+
+        <main class="flex-1 container mx-auto px-4 py-8 max-w-4xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-2">Create Beautiful Handwritten Text</h2>
+                <p class="text-[var(--text)] opacity-75">Transform your text into elegant handwriting with just a few clicks</p>
+            </div>
+
+            <!-- Text Input Section -->
+            <div class="mb-8">
+                <label class="block text-sm font-medium mb-2">Your Text</label>
+                <div class="animated-input rounded-lg shadow-md">
+                    <textarea id="text-input" class="w-full p-4 rounded-lg border border-[var(--secondary)] bg-[var(--bg)] text-[var(--text)] focus:outline-none resize-none h-32" placeholder="Type your text here..."></textarea>
+                    <div class="wave-animation"></div>
+                </div>
+            </div>
+
+            <!-- Options Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Handwriting Style</label>
+                    <select id="font-select" class="custom-select w-full p-3 rounded-lg border border-[var(--secondary)] bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] shadow-sm">
+                        <option value="casual">Casual Script</option>
+                        <option value="elegant">Elegant Cursive</option>
+                        <option value="neat">Neat Print</option>
+                        <option value="artistic">Artistic Flair</option>
+                        <option value="formal">Formal Calligraphy</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Text Size</label>
+                    <select id="size-select" class="custom-select w-full p-3 rounded-lg border border-[var(--secondary)] bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] shadow-sm">
+                        <option value="small">Small</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="large">Large</option>
+                        <option value="xlarge">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="text-center mb-10">
+                <button id="generate-btn" class="glow-button bg-[var(--primary)] text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    Generate Handwriting
+                </button>
+            </div>
+
+            <!-- Preview Section -->
+            <div id="preview-section" class="preview-container rounded-lg border-2 border-dashed border-[var(--secondary)] p-6 text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Preview</h3>
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-4">
+                    <div id="preview-image" class="preview-image min-h-[200px] flex items-center justify-center">
+                        <p class="text-gray-400">Your handwriting will appear here</p>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <button id="download-btn" class="bg-[var(--primary)] text-white px-4 py-2 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                        Download Image
+                    </button>
+                    <button id="reset-btn" class="bg-transparent border border-[var(--primary)] text-[var(--primary)] px-4 py-2 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="py-4 text-center text-sm text-[var(--text)] opacity-75">
+            <p>© 2023 Handwriting Generator | Created with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
